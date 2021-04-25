@@ -96,7 +96,7 @@ function multiply(_num1, _num2) {
 //Zum testen
 let multNum1 = 3;
 let multNum2 = 5;
-//console.log(multNum1 + " mal " + multNum2 + " = " + multiply(multNum1, multNum2));
+console.log(multNum1 + " mal " + multNum2 + " = " + multiply(multNum1, multNum2));
 //b)
 function max(_num1, _num2) {
     return (_num1 > _num2) ? _num1 : _num2;
@@ -104,7 +104,7 @@ function max(_num1, _num2) {
 //Zum testen
 let testNum1 = 200;
 let testNum2 = 20;
-//console.log("Von den Zahlen " + testNum1 + " und " + testNum2 + " ist " + max(testNum1, testNum2) + " die größere Zahl");
+console.log("Von den Zahlen " + testNum1 + " und " + testNum2 + " ist " + max(testNum1, testNum2) + " die größere Zahl");
 //c)
 function summeHundert() {
     let result = 0;
@@ -115,7 +115,7 @@ function summeHundert() {
     }
     console.log(result);
 }
-//summeHundert();
+summeHundert();
 //d)
 function zehnZufall() {
     for (let index = 0; index < 10; index++) {
@@ -123,7 +123,7 @@ function zehnZufall() {
         //console.log(Math.floor(Math.random() * 100)); //Für ganze Zahlen
     }
 }
-//zehnZufall();
+zehnZufall();
 //e)
 function factorial(_n) {
     let result = 1;
@@ -134,7 +134,7 @@ function factorial(_n) {
 }
 //Zum testen
 let factorialNum = 7;
-//console.log("Die Fakultät von " + factorialNum + " ist gleich " + factorial(factorialNum));
+console.log("Die Fakultät von " + factorialNum + " ist gleich " + factorial(factorialNum));
 //f)
 function leapyears() {
     console.log("Schaltjahre von 1900 bis 2021:");
@@ -144,7 +144,7 @@ function leapyears() {
         }
     }
 }
-//leapyears();
+leapyears();
 //Aufgabe 6
 //a)
 function stringStairs() {
@@ -154,7 +154,7 @@ function stringStairs() {
         console.log(stairs);
     }
 }
-//stringStairs();
+stringStairs();
 //b)
 function fizzBuzz() {
     for (let index = 0; index < 100; index++) {
@@ -169,7 +169,7 @@ function fizzBuzz() {
         }
     }
 }
-//fizzBuzz();
+fizzBuzz();
 //c)
 function fizzBuzz2() {
     for (let index = 1; index < 100; index++) {
@@ -187,7 +187,7 @@ function fizzBuzz2() {
         }
     }
 }
-//fizzBuzz2();
+fizzBuzz2();
 //d)
 function schachbrett() {
     let schachbrett = "";
@@ -199,7 +199,7 @@ function schachbrett() {
     }
     return schachbrett;
 }
-//console.log(schachbrett());
+console.log(schachbrett());
 //e)
 function schachbrett2(_hoehe, _breite) {
     let schachbrett = "";
@@ -214,5 +214,5 @@ function schachbrett2(_hoehe, _breite) {
 //Zum testen
 let hoehe = 15;
 let breite = 15;
-//console.log(schachbrett2(hoehe, breite));
+console.log(schachbrett2(hoehe, breite));
 //# sourceMappingURL=script.js.map
