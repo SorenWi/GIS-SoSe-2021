@@ -113,7 +113,7 @@ function multiply(_num1: number, _num2: number): number {
 //Zum testen
 let multNum1: number = 3;
 let multNum2: number = 5;
-//console.log(multNum1 + " mal " + multNum2 + " = " + multiply(multNum1, multNum2));
+console.log(multNum1 + " mal " + multNum2 + " = " + multiply(multNum1, multNum2));
 
 //b)
 function max(_num1: number, _num2: number): number {
@@ -123,7 +123,7 @@ function max(_num1: number, _num2: number): number {
 //Zum testen
 let testNum1: number = 200;
 let testNum2: number = 20;
-//console.log("Von den Zahlen " + testNum1 + " und " + testNum2 + " ist " + max(testNum1, testNum2) + " die größere Zahl");
+console.log("Von den Zahlen " + testNum1 + " und " + testNum2 + " ist " + max(testNum1, testNum2) + " die größere Zahl");
 
 //c)
 function summeHundert(): void {
@@ -137,7 +137,7 @@ function summeHundert(): void {
     console.log(result);
 }
 
-//summeHundert();
+summeHundert();
 
 
 //d)
@@ -148,7 +148,7 @@ function zehnZufall(): void {
     }
 }
 
-//zehnZufall();
+zehnZufall();
 
 //e)
 function factorial(_n: number): number {
@@ -162,7 +162,7 @@ function factorial(_n: number): number {
 
 //Zum testen
 let factorialNum: number = 7;
-//console.log("Die Fakultät von " + factorialNum + " ist gleich " + factorial(factorialNum));
+console.log("Die Fakultät von " + factorialNum + " ist gleich " + factorial(factorialNum));
 
 //f)
 function leapyears(): void {
@@ -174,7 +174,7 @@ function leapyears(): void {
     }
 }
 
-//leapyears();
+leapyears();
 
 
 //Aufgabe 6
@@ -188,7 +188,7 @@ function stringStairs(): void {
     }  
 }
 
-//stringStairs();
+stringStairs();
 
 
 //b)
@@ -204,7 +204,7 @@ function fizzBuzz(): void {
     }    
 }
 
-//fizzBuzz();
+fizzBuzz();
 
 //c)
 function fizzBuzz2(): void {
@@ -221,7 +221,7 @@ function fizzBuzz2(): void {
     }
 }
 
-//fizzBuzz2();
+fizzBuzz2();
 
 //d)
 function schachbrett(): string {
@@ -235,7 +235,7 @@ function schachbrett(): string {
     return schachbrett;
 }
 
-//console.log(schachbrett());
+console.log(schachbrett());
 
 //e)
 function schachbrett2(_hoehe: number, _breite: number): string {
@@ -252,4 +252,4 @@ function schachbrett2(_hoehe: number, _breite: number): string {
 //Zum testen
 let hoehe: number = 15;
 let breite: number = 15;
-//console.log(schachbrett2(hoehe, breite));
+console.log(schachbrett2(hoehe, breite));
