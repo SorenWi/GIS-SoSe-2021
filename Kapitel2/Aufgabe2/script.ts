@@ -389,6 +389,7 @@ context.fill();
 
 
 
+
 //b) c) d) e)
 
 let objectCanvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById("objectCanvas");
@@ -412,7 +413,7 @@ class DrawingObject {
 }
 
 
-class Rectangle extends DrawingObject{
+class Rectangle extends DrawingObject {
     public constructor() {
         super();
     }
@@ -439,6 +440,7 @@ class Circle extends DrawingObject {
 }
 
 /*
+//Rechteck Version
 //Rechteck Array generieren
 let objectAmount: number = 5;
 let objectArray: Rectangle[] = [];
@@ -476,8 +478,8 @@ function drawAllObjects(): void {
 
 
 
-
 //Kreis Version
+//Kreis Array generieren
 let objectAmount: number = 5;
 let objectArray: Circle[] = [];
 for (let i: number = 0; i < objectAmount; i++) {
@@ -504,15 +506,10 @@ function update(): void {
 //Alle Kreise des Arrays zeichnen
 function drawAllObjects(): void {
     objectContext.clearRect(0, 0, objectCanvas.width, objectCanvas.height);
-    
     for (let values of objectArray) {
         values.drawCircle();
     }    
-    
-    
 }
-
-
 
 let intervalFunct: number = setInterval(update, 15);
 setTimeout(function(): void {clearInterval(intervalFunct); }, 10000); //Stoppt nach 10 Sekunden

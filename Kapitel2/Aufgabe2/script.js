@@ -349,6 +349,7 @@ class Circle extends DrawingObject {
     }
 }
 /*
+//Rechteck Version
 //Rechteck Array generieren
 let objectAmount: number = 5;
 let objectArray: Rectangle[] = [];
@@ -383,6 +384,7 @@ function drawAllObjects(): void {
 }
 */
 //Kreis Version
+//Kreis Array generieren
 let objectAmount = 5;
 let objectArray = [];
 for (let i = 0; i < objectAmount; i++) {
