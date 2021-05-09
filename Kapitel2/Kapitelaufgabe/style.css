@@ -1,0 +1,71 @@
+body {
+    overflow: hidden;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 7vh repeat(3, 31vh);
+    grid-template-areas: 
+    "header header"
+    "chooseFlower picturePreview"
+    "chooseFlowerPot picturePreview"
+    "chooseBackground picturePreview";
+}
+
+
+#chooseFlower {
+    grid-area: chooseFlower;
+    height: 100%;
+    background-color:#555555;
+    text-align: center;
+    color: black;
+    line-height: 31vh;
+    text-decoration: none;
+    font-size: 10vh;
+    font-weight: 900;
+}
+
+
+#chooseFlowerPot {
+    grid-area: chooseFlowerPot;
+    background-color:  	#999999;
+    height: 100%;
+    text-align: center;
+    color: black;
+    line-height: 31vh;
+    text-decoration: none;
+    font-size: 10vh;
+    font-weight: 900;
+}
+
+#chooseBackground {
+    grid-area: chooseBackground;
+    background-color:#555555;
+    height: 100%;
+    text-align: center;
+    color: black;
+    line-height: 31vh;
+    text-decoration: none;
+    font-size: 10vh;
+    font-weight: 900;
+}
+
+#header {
+    grid-area: header;
+    height: 100%;
+    background: #777777;
+    text-align: center;
+    line-height: 7vh;
+    font-size: 5vh;
+    font-weight: 900;
+}
+
+#picturePreview {
+    grid-area: picturePreview;
+    background-color: lightgray;
+    text-align: center;
+    color: black;
+    line-height: 93vh;
+    text-decoration: none;
+    font-size: 10vh;
+    font-weight: 900;
+}
