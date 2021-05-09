@@ -66,16 +66,6 @@ var Aufgabe2_3;
             }
         });
     }
-    function addEpilepsieBtn() {
-        let epilepsieBtn = document.createElement("button");
-        epilepsieBtn.appendChild(document.createTextNode("nicht klicken falls Epilepsie"));
-        document.body.appendChild(epilepsieBtn);
-        epilepsieBtn.style.position = "relative";
-        epilepsieBtn.style.zIndex = "2";
-        epilepsieBtn.addEventListener("click", function () {
-            setInterval(addRectangle, 1);
-        });
-    }
     let vX = [];
     let vY = [];
     let maxSpeed = 3;
@@ -91,12 +81,21 @@ var Aufgabe2_3;
             divRectArr[i].style.top = parseInt(divRectArr[i].style.top) + vY[i] + "px";
         }
     }
+    function addEpilepsieBtn() {
+        let epilepsieBtn = document.createElement("button");
+        epilepsieBtn.appendChild(document.createTextNode("nicht klicken falls Epilepsie (can't be stopped (unless page is reloaded), you've been warned"));
+        document.body.appendChild(epilepsieBtn);
+        epilepsieBtn.style.position = "relative";
+        epilepsieBtn.style.zIndex = "2";
+        epilepsieBtn.addEventListener("click", function () {
+            setInterval(addRectangle, 1);
+        });
+    }
     document.body.style.overflow = "hidden";
     drawStartingRectangles(startRectAmount);
     addAddBtn();
     addResetBtn();
     addEpilepsieBtn();
-    let intervalFunct = setInterval(updateRect, 15);
-    //setTimeout(function(): void {clearInterval(intervalFunct); }, 10000);
+    setInterval(updateRect, 15);
 })(Aufgabe2_3 || (Aufgabe2_3 = {}));
 //# sourceMappingURL=script.js.map

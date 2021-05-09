@@ -73,19 +73,6 @@ namespace Aufgabe2_3 {
         });
     }
 
-
-    function addEpilepsieBtn(): void {
-        let epilepsieBtn: HTMLButtonElement = document.createElement("button");
-        epilepsieBtn.appendChild(document.createTextNode("nicht klicken falls Epilepsie"));
-        document.body.appendChild(epilepsieBtn);
-        epilepsieBtn.style.position = "relative";
-        epilepsieBtn.style.zIndex = "2";
-        epilepsieBtn.addEventListener("click", function(): void {
-        setInterval(addRectangle, 1);
-        });
-    }
-
-
     let vX: number[] = [];
     let vY: number[] = [];
     let maxSpeed: number = 3;
@@ -105,7 +92,16 @@ namespace Aufgabe2_3 {
     }
 
 
-
+    function addEpilepsieBtn(): void {
+        let epilepsieBtn: HTMLButtonElement = document.createElement("button");
+        epilepsieBtn.appendChild(document.createTextNode("nicht klicken falls Epilepsie (can't be stopped (unless page is reloaded), you've been warned"));
+        document.body.appendChild(epilepsieBtn);
+        epilepsieBtn.style.position = "relative";
+        epilepsieBtn.style.zIndex = "2";
+        epilepsieBtn.addEventListener("click", function(): void {
+           setInterval(addRectangle, 1);
+        });
+    }
 
     document.body.style.overflow = "hidden";
     drawStartingRectangles(startRectAmount);
@@ -114,6 +110,5 @@ namespace Aufgabe2_3 {
     addEpilepsieBtn();
 
 
-    let intervalFunct: number = setInterval(updateRect, 15);
-    //setTimeout(function(): void {clearInterval(intervalFunct); }, 10000);
+    setInterval(updateRect, 15);
 }
