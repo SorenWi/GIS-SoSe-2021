@@ -1,25 +1,56 @@
 "use strict";
 var Kapitelaufgabe;
 (function (Kapitelaufgabe) {
-    class Picture {
-        setFlower(_flower) {
-            this.flower = _flower;
-        }
-    }
-    let finalPicture = new Picture();
-    let flowerOptionPanel = document.getElementById("flowerOptionPanel");
+    let parts = JSON.parse(Kapitelaufgabe.partsJSON);
+    let symbolOptionPanel = document.getElementById("symbolOptionPanel");
+    let shieldOptionPanel = document.getElementById("shieldOptionPanel");
+    let shieldColorOptionPanel = document.getElementById("shieldColorOptionPanel");
+    let finalPictureDiv = document.getElementById("finalPictureDiv");
     let optionImages;
-    if (flowerOptionPanel != null) {
-        showFlowerOptions();
+    if (symbolOptionPanel != null || shieldOptionPanel != null || shieldColorOptionPanel != null) {
+        if (symbolOptionPanel != null)
+            showOptions(symbolOptionPanel, parts.symbols);
+        if (shieldOptionPanel != null)
+            showOptions(shieldOptionPanel, parts.shields);
+        if (shieldColorOptionPanel != null)
+            showOptions(shieldColorOptionPanel, parts.shieldColors);
         optionImages = document.querySelectorAll(".option"); //showOptions has to be called before, otherwise empty
         makeOptionsClickable(optionImages);
     }
-    function showFlowerOptions() {
-        for (let i = 0; i < Kapitelaufgabe.parts.flowers.length; i++) {
+    if (finalPictureDiv != null) {
+        drawFinalPicture();
+        addBorder();
+    }
+    function addBorder() {
+        let borderImg = document.createElement("img");
+        borderImg.setAttribute("src", "./media/border.png");
+        borderImg.setAttribute("id", "finalBorder");
+        borderImg.setAttribute("class", "finalPart");
+        finalPictureDiv.appendChild(borderImg);
+    }
+    function drawFinalPicture() {
+        let symbolImg = document.createElement("img");
+        let shieldImg = document.createElement("img");
+        let shieldColorImg = document.createElement("img");
+        symbolImg.setAttribute("src", localStorage.getItem("symbol"));
+        shieldImg.setAttribute("src", localStorage.getItem("shield"));
+        shieldColorImg.setAttribute("src", localStorage.getItem("shieldColor"));
+        symbolImg.setAttribute("id", "finalSymbol");
+        shieldImg.setAttribute("id", "finalShield");
+        shieldColorImg.setAttribute("id", "finalColor");
+        symbolImg.setAttribute("class", "finalPart");
+        shieldImg.setAttribute("class", "finalPart");
+        shieldColorImg.setAttribute("class", "finalPart");
+        finalPictureDiv.appendChild(shieldColorImg);
+        finalPictureDiv.appendChild(shieldImg);
+        finalPictureDiv.appendChild(symbolImg);
+    }
+    function showOptions(_optionPanel, _partArr) {
+        for (let i = 0; i < _partArr.length; i++) {
             let temp = document.createElement("img");
-            temp.setAttribute("src", String(Kapitelaufgabe.parts.flowers[i]));
+            temp.setAttribute("src", String(_partArr[i]));
             temp.setAttribute("class", "option");
-            flowerOptionPanel.appendChild(temp);
+            _optionPanel.appendChild(temp);
         }
     }
     //Makes options clickable
@@ -36,8 +67,15 @@ var Kapitelaufgabe;
             e.setAttribute("class", "option");
         });
         _e.setAttribute("class", "optionSelected");
-        finalPicture.setFlower(_e.src);
-        console.log(finalPicture.flower); //Geben Sie die Variable, in der die Auswahl gespeichert ist, auf der Konsole aus.
+        if (shieldOptionPanel != null) {
+            localStorage.setItem("shield", _e.src);
+        }
+        if (shieldColorOptionPanel != null) {
+            localStorage.setItem("shieldColor", _e.src);
+        }
+        if (symbolOptionPanel != null) {
+            localStorage.setItem("symbol", _e.src);
+        }
     }
 })(Kapitelaufgabe || (Kapitelaufgabe = {}));
 //# sourceMappingURL=script.js.map

@@ -1,71 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Girassol&display=swap');
+/* Main Page */
 body {
     overflow: hidden;
     margin: 0;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 7vh repeat(3, 31vh);
+    grid-template-rows: 10vh repeat(3, 30vh);
     grid-template-areas: 
     "header header"
-    "chooseFlower picturePreview"
-    "chooseFlowerPot picturePreview"
-    "chooseBackground picturePreview";
+    "chooseSymbol picturePreview"
+    "chooseShield picturePreview"
+    "chooseShieldColor picturePreview";
+    font-family: 'Girassol', cursive;
 }
 
+.subBody {
+    grid-template-columns: 1fr;
+    grid-template-rows: 9vh 82vh 9vh;
+    background: linear-gradient(60deg, #000, #333);
+}
 
-#chooseFlower {
-    grid-area: chooseFlower;
+#shieldBody {
+    grid-template-areas:
+    "header"
+    "chooseShield"
+    "save"; 
+}
+
+#shieldColorBody {
+    grid-template-areas:
+    "header"
+    "chooseShieldColor"
+    "save";
+}
+
+#symbolBody {
+    grid-template-areas:
+    "header"
+    "chooseSymbol"
+    "save";
+}
+
+#pictureBody {
+    grid-template-areas:
+    "header"
+    "picture"
+    "save";
+}
+
+#chooseSymbol, #chooseShield, #chooseShieldColor {
     height: 100%;
-    background-color:#555555;
     text-align: center;
-    color: black;
+    color: white;
     line-height: 31vh;
     text-decoration: none;
     font-size: 10vh;
     font-weight: 900;
 }
 
-
-#chooseFlowerPot {
-    grid-area: chooseFlowerPot;
-    background-color:  	#999999;
-    height: 100%;
-    text-align: center;
-    color: black;
-    line-height: 31vh;
-    text-decoration: none;
-    font-size: 10vh;
-    font-weight: 900;
+#chooseSymbol {
+    grid-area: chooseSymbol;
+    background:linear-gradient(60deg, #000, #333);
 }
 
-#chooseBackground {
-    grid-area: chooseBackground;
-    background-color:#555555;
-    height: 100%;
-    text-align: center;
-    color: black;
-    line-height: 31vh;
-    text-decoration: none;
-    font-size: 10vh;
-    font-weight: 900;
+#chooseShield {
+    grid-area: chooseShield;
+    background: linear-gradient(60deg, #210D26 , #84319B);
 }
 
-#header {
-    grid-area: header;
-    height: 100%;
-    background: #777777;
-    text-align: center;
-    line-height: 7vh;
-    font-size: 5vh;
-    font-weight: 900;
+#chooseShieldColor {
+    grid-area: chooseShieldColor;
+    background:linear-gradient(60deg, #000, #333);
 }
 
 #picturePreview {
     grid-area: picturePreview;
-    background-color: lightgray;
+    background: linear-gradient(45deg, #e8e9fc, #7e7e7e);
     text-align: center;
     color: black;
     line-height: 93vh;
     text-decoration: none;
     font-size: 10vh;
     font-weight: 900;
+}
+
+/* General */
+.header {
+    grid-area: header;
+    height: 100%;
+    background: linear-gradient(45deg, #210D26 , #84319B);
+    color: white;
+    text-align: center;
+    line-height: 10vh;
+    font-size: 7vh;
+    font-weight: 900;
+}
+
+/* Subsites */
+
+.optionPanel {
+    justify-self: center;
+    align-self: center;
+    max-width: 600px;
+}
+
+#shieldOptionPanel {
+    grid-area: chooseShield;
+}
+
+#symbolOptionPanel {
+    grid-area: chooseSymbol;
+}
+
+#shieldColorOptionPanel {
+    grid-area: chooseShieldColor;
+}
+
+#finalPictureDiv {
+    grid-area: picture;
+    justify-self: center;
+    align-self: center;
+}
+
+.option, .optionSelected {
+    margin: 10px;
+    padding: 5px;
+    height: 100px; 
+    width: 100px;
+    background: linear-gradient(45deg, #88888F, #4A4A4A) ;
+    transform: scale(1.0);
+    transition: transform 0.1s;
+}
+
+#shieldOptionPanel .option, #shieldOptionPanel .optionSelected {
+    width: 150px;
+    height: auto;
+}
+
+.option:hover {
+    transform: scale(1.1);
+}
+
+.option {
+   border: 5px solid white;
+  
+}
+
+.optionSelected {
+    border: 5px outset #B046B7;
+    background: linear-gradient(45deg, #e8e9fc, #7e7e7e);
+    transform: scale(1.1);
+}
+
+.save, #makeNew {
+    grid-area: save;
+    background: linear-gradient(45deg, #e8e9fc, #7e7e7e);
+    text-align: center;
+    line-height: 9vh;
+    font-size: 5vh;
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* final picture */
+#finalPictureDiv {
+    position: relative;
+    height: 600px;
+    width: 500px;
+}
+
+#finalSymbol {
+    top: 30%;
+    left: 27.5%;
+    width: 45%;
+}
+
+#finalColor {
+    top: 10%;
+    left: 20%;
+    width: 65%;
+    height: 75%;
+}
+
+#finalShield {
+    width: 100%;
+    height: 100%;
+}
+
+#finalBorder {
+    width:100%;
+    height:100%;
+    z-index: 4;
+}
+
+.finalPart {
+    position: absolute;
+}
+
+
+@media screen and (max-width: 750px) {
+    .option, .optionSelected {
+        margin: 5px;
+        padding: 3px;
+        height: 50px; 
+        width: 50px;
+    }
+
+    .optionPanel {
+        max-width: 80%;
+    }
+
+    #shieldOptionPanel .option, #shieldOptionPanel .optionSelected {
+        height: auto;
+        width: 70px;
+    }
+}
+
+@media screen and (max-height: 750px) {
+    .optionPanel {
+        max-width: 80%;
+    }
+
+    #finalPictureDiv {
+        height: 300px;
+        width: 250px;
+    }
 }
