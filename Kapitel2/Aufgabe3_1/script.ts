@@ -75,22 +75,56 @@ namespace Aufgabe2_3 {
 
     let vX: number[] = [];
     let vY: number[] = [];
-    let maxSpeed: number = 3;
+    let maxSpeed: number = 8;
 
     //Werte für Geschwindikeiten generieren
     function generateVelocity(_i: number): void {
-            vX[_i] = Math.random() * (maxSpeed * 2) - maxSpeed;
-            vY[_i] = Math.random() * (maxSpeed * 2) - maxSpeed;
+            vX[_i] =  Math.ceil(Math.random() * (maxSpeed * 2) - maxSpeed);
+            vY[_i] = Math.ceil(Math.random() * (maxSpeed * 2) - maxSpeed);
     }
  
     //Update Rechteck Position
     function updateRect(): void {
         for (let i: number = 0; i < divRectArr.length; i++) {
-            divRectArr[i].style.left = parseInt(divRectArr[i].style.left) + vX[i] + "px";
-            divRectArr[i].style.top = parseInt(divRectArr[i].style.top) + vY[i] + "px";
+            if (collisionBot(divRectArr[i])) {
+                divRectArr[i].style.top = window.innerHeight - parseFloat(divRectArr[i].style.height) + "px";
+                divRectArr[i].style.left = parseFloat(divRectArr[i].style.left) + vX[i] + "px";
+                vY[i] = - vY[i];
+            } else if (collisionTop(divRectArr[i])) {
+                divRectArr[i].style.top = 0 + "px";
+                divRectArr[i].style.left = parseFloat(divRectArr[i].style.left) + vX[i] + "px";
+                vY[i] = - vY[i];
+            } else if (collisionLeft(divRectArr[i])) {
+                divRectArr[i].style.left = 0 + "px";
+                divRectArr[i].style.top = parseFloat(divRectArr[i].style.top) + vY[i] + "px";
+                vX[i] = - vX[i];
+            } else if (collisionRight(divRectArr[i])) {
+                divRectArr[i].style.left = window.innerWidth - parseInt(divRectArr[i].style.width) + "px";
+                divRectArr[i].style.top = parseInt(divRectArr[i].style.top) + vY[i] + "px";
+                vX[i] = - vX[i];
+            } else {
+                divRectArr[i].style.left = parseInt(divRectArr[i].style.left) + vX[i] + "px";
+                divRectArr[i].style.top = parseInt(divRectArr[i].style.top) + vY[i] + "px";
+            }
+           
         }
     }
 
+    function collisionBot(_div: HTMLDivElement): boolean {
+        return parseFloat(_div.style.top) + parseInt(_div.style.height) > window.innerHeight;
+    }
+
+    function collisionTop(_div: HTMLDivElement): boolean {
+        return parseFloat(_div.style.top) < 0;
+    }
+
+    function collisionLeft(_div: HTMLDivElement): boolean {
+        return parseFloat(_div.style.left) < 0;
+    }
+
+    function collisionRight(_div: HTMLDivElement): boolean {
+        return parseFloat(_div.style.left) + parseFloat(_div.style.width) > window.innerWidth;
+    }
 
     function addEpilepsieBtn(): void {
         let epilepsieBtn: HTMLButtonElement = document.createElement("button");
