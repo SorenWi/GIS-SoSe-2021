@@ -5,9 +5,12 @@ namespace Kapitelaufgabe {
         shields: string[];
         shieldColors: string[];
     }
-    
-    let parts: Parts = parseJSON(partsJSON);
 
+    interface Message {
+        error: string;
+        message: string;
+    }
+    
     let symbolOptionPanel: HTMLDivElement = <HTMLDivElement> document.getElementById("symbolOptionPanel");
     let shieldOptionPanel: HTMLDivElement = <HTMLDivElement> document.getElementById("shieldOptionPanel");
     let shieldColorOptionPanel: HTMLDivElement = <HTMLDivElement> document.getElementById("shieldColorOptionPanel");
@@ -15,23 +18,57 @@ namespace Kapitelaufgabe {
     
     let optionImages: NodeListOf<HTMLImageElement>;
 
+    let parts: Parts;
+    buildAll();
+    send("https://gis-communication.herokuapp.com/");
+
+    async function send(_url: RequestInfo): Promise<void> {
+        let query: string = ((localStorage.getItem("symbol") != null) ? "symbol=" + localStorage.getItem("symbol") + "&" : "") +
+                            ((localStorage.getItem("shield") != null) ? "shield=" + localStorage.getItem("shield") + "&" : "") +
+                            ((localStorage.getItem("shieldColor") != null) ? "shieldColor=" + localStorage.getItem("shieldColor") : "");
+        _url = _url + "?" + query;
+        let response: Response = await fetch(_url);
+        let responseJSON: Message = await response.json();
+        let messageDiv: HTMLDivElement = <HTMLDivElement> document.getElementById("message");
+        if (responseJSON.error != null) {
+            messageDiv.innerHTML = "Error: " + responseJSON.error;
+            messageDiv.style.color = "red";
+        }
+        if (responseJSON.message != null) {
+            messageDiv.innerHTML = "Nachricht: " + responseJSON.message;
+            messageDiv.style.color = "#5f5";
+        }
+        
+    }
+
+    async function communicate(_url: RequestInfo): Promise<Parts> {
+        let response: Response = await fetch(_url);
+        return await response.json();
+    }
     
-    if (symbolOptionPanel != null || shieldOptionPanel != null || shieldColorOptionPanel != null) {
-        if (symbolOptionPanel != null) showOptions(symbolOptionPanel, parts.symbols);
-        if (shieldOptionPanel != null) showOptions(shieldOptionPanel, parts.shields);
-        if (shieldColorOptionPanel != null) showOptions(shieldColorOptionPanel, parts.shieldColors);
-        optionImages = document.querySelectorAll(".option"); //showOptions has to be called before, otherwise empty
-        makeOptionsClickable(optionImages);
+    async function buildAll(): Promise<void> {
+        parts = await communicate("https://sorenwi.github.io/GIS-SoSe-2021/Kapitel2/Kapitelaufgabe/data.json");
+        showAll();
     }
 
-    if (finalPictureDiv != null) {
-        drawFinalPicture();
-        addBorder();
-        resetBtnFunctionality();
-    }
-
-    if (symbolOptionPanel == null && shieldOptionPanel == null && shieldColorOptionPanel == null && finalPictureDiv == null) {
-        showChosen();     
+    function showAll(): void {
+        if (symbolOptionPanel != null || shieldOptionPanel != null || shieldColorOptionPanel != null) {
+            if (symbolOptionPanel != null) showOptions(symbolOptionPanel, parts.symbols);
+            if (shieldOptionPanel != null) showOptions(shieldOptionPanel, parts.shields);
+            if (shieldColorOptionPanel != null) showOptions(shieldColorOptionPanel, parts.shieldColors);
+            optionImages = document.querySelectorAll(".option");
+            makeOptionsClickable(optionImages);
+        }
+    
+        if (finalPictureDiv != null) {
+            drawFinalPicture();
+            addBorder();
+            resetBtnFunctionality();
+        }
+    
+        if (symbolOptionPanel == null && shieldOptionPanel == null && shieldColorOptionPanel == null && finalPictureDiv == null) {
+            showChosen();     
+        }
     }
 
     function showChosen(): void {
@@ -118,18 +155,9 @@ namespace Kapitelaufgabe {
             e.setAttribute("class", "option");
         });
         _e.setAttribute("class", "optionSelected");
-        if (shieldOptionPanel != null) { 
-            localStorage.setItem("shield", _e.src);
-        }
-        if (shieldColorOptionPanel != null) {
-            localStorage.setItem("shieldColor", _e.src);
-        }
-        if (symbolOptionPanel != null) {
-            localStorage.setItem("symbol", _e.src);
-        }
+        if (shieldOptionPanel != null) localStorage.setItem("shield", _e.src);
+        if (shieldColorOptionPanel != null) localStorage.setItem("shieldColor", _e.src);
+        if (symbolOptionPanel != null) localStorage.setItem("symbol", _e.src);
     }
-
-    function parseJSON(_json: string): Parts {
-        return JSON.parse(_json);
-    }
+ 
 }
