@@ -17,13 +17,15 @@ var Kapitelaufgabe;
         let response = await fetch(_url);
         let responseJSON = await response.json();
         let messageDiv = document.getElementById("message");
-        if (responseJSON.error != null) {
-            messageDiv.innerHTML = "Error: " + responseJSON.error;
-            messageDiv.style.color = "red";
-        }
-        if (responseJSON.message != null) {
-            messageDiv.innerHTML = "Nachricht: " + responseJSON.message;
-            messageDiv.style.color = "#5f5";
+        if (finalPictureDiv != null) {
+            if (responseJSON.error != null) {
+                messageDiv.innerHTML = "Error: " + responseJSON.error;
+                messageDiv.style.color = "red";
+            }
+            if (responseJSON.message != null) {
+                messageDiv.innerHTML = "Nachricht: " + responseJSON.message;
+                messageDiv.style.color = "#5f5";
+            }
         }
     }
     async function communicate(_url) {

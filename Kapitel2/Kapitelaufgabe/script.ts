@@ -30,15 +30,16 @@ namespace Kapitelaufgabe {
         let response: Response = await fetch(_url);
         let responseJSON: Message = await response.json();
         let messageDiv: HTMLDivElement = <HTMLDivElement> document.getElementById("message");
-        if (responseJSON.error != null) {
-            messageDiv.innerHTML = "Error: " + responseJSON.error;
-            messageDiv.style.color = "red";
+        if (finalPictureDiv != null) {
+            if (responseJSON.error != null) {
+                messageDiv.innerHTML = "Error: " + responseJSON.error;
+                messageDiv.style.color = "red";
+            }
+            if (responseJSON.message != null) {
+                messageDiv.innerHTML = "Nachricht: " + responseJSON.message;
+                messageDiv.style.color = "#5f5";
+            }
         }
-        if (responseJSON.message != null) {
-            messageDiv.innerHTML = "Nachricht: " + responseJSON.message;
-            messageDiv.style.color = "#5f5";
-        }
-        
     }
 
     async function communicate(_url: RequestInfo): Promise<Parts> {
