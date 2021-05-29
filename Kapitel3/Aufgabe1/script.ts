@@ -15,7 +15,7 @@ namespace a3_1 {
     }
 
     function showResponse(response: string): void {
-        let responseDiv: HTMLDivElement = <HTMLDivElement> document.getElementById("resposeDiv");
+        let responseDiv: HTMLDivElement = <HTMLDivElement> document.getElementById("respose");
         responseDiv.innerHTML = response;
     }
 }
