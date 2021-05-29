@@ -15,7 +15,7 @@ var a3_1;
         console.log(responseText);
     }
     function showResponse(response) {
-        let responseDiv = document.getElementById("respose");
+        let responseDiv = document.getElementById("response");
         responseDiv.innerHTML = response;
     }
 })(a3_1 || (a3_1 = {}));
