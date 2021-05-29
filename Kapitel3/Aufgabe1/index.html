@@ -4,10 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./server.js" defer></script>
     <script src="./script.js" defer></script>
     <title>Document</title>
 </head>
 <body>
+    <form>
+        <label for="firstname">First Name:</label>
+        <input type="text" name="firstname" id="firstnameID">
+        <br>
+        <label for="lastname">Last Name:</label>
+        <input type="text" name="lastname" id="lastnameID">
+        <br>
+        <label for="genderFID">Female</label>
+        <input type="radio" name="gender" value="female" id="genderFID">
+        <label for="genderMID">Male</label>
+        <input type="radio" name="gender" value="male" id="genderMID">
+        <br>
+        <button type="submit" id="submitBtn">Submit</button>
+    </form>
+    <div id="response"></div>
 </body>
 </html>
