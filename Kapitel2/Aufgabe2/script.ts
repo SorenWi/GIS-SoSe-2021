@@ -511,7 +511,7 @@ function drawAllObjects(): void {
     }    
 }
 
-let intervalFunct: number = setInterval(update, 15);
+let intervalFunct: NodeJS.Timeout = setInterval(update, 15);
 setTimeout(function(): void {clearInterval(intervalFunct); }, 10000); //Stoppt nach 10 Sekunden
 
 
