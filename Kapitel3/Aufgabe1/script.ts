@@ -4,7 +4,7 @@ namespace a3_1 {
     
     async function click(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
-        let url: RequestInfo = "https://gissose2021soren.herokuapp.com/";
+        let url: string = "https://gissose2021soren.herokuapp.com/";
         //let url: RequestInfo = "http://localhost:8100";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url += "?" + query.toString();  
