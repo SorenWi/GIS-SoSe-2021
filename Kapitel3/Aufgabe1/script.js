@@ -16,7 +16,7 @@ var a3_1;
     }
     function showResponse(response) {
         let responseDiv = document.getElementById("response");
-        responseDiv.innerHTML = response;
+        responseDiv.innerHTML = "Serverantwort: " + response;
     }
 })(a3_1 || (a3_1 = {}));
 //# sourceMappingURL=script.js.map

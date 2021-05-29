@@ -16,6 +16,6 @@ namespace a3_1 {
 
     function showResponse(response: string): void {
         let responseDiv: HTMLDivElement = <HTMLDivElement> document.getElementById("response");
-        responseDiv.innerHTML = response;
+        responseDiv.innerHTML = "Serverantwort: " + response;
     }
 }

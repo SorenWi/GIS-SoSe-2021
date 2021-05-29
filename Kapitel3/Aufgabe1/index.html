@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <script src="./script.js" async></script>
-    <title>Document</title>
+    <title>Forms</title>
 </head>
 <body>
-    <form>
-        <label for="firstname">First Name:</label>
-        <input type="text" name="firstname" id="firstnameID">
-        <br>
-        <label for="lastname">Last Name:</label>
-        <input type="text" name="lastname" id="lastnameID">
-        <br>
-        <label for="genderFID">Female</label>
-        <input type="radio" name="gender" value="female" id="genderFID">
-        <label for="genderMID">Male</label>
-        <input type="radio" name="gender" value="male" id="genderMID">
-        <br>
-        <button type="button" id="submitBtn">Submit</button>
-    </form>
-    <div id="response"></div>
+    <div id="formDiv">
+        <form>
+            <label for="firstname">First Name:</label>
+            <input type="text" name="firstname" id="firstnameID">
+            <br>
+            <label for="lastname">Last Name:</label>
+            <input type="text" name="lastname" id="lastnameID">
+            <br>
+            <label for="genderFID">Female</label>
+            <input type="radio" name="gender" value="female" id="genderFID">
+            <label for="genderMID">Male</label>
+            <input type="radio" name="gender" value="male" id="genderMID">
+            <br>
+            <button type="button" id="submitBtn">Submit</button>
+        </form>
+        <div id="response"></div>
+    </div>
 </body>
 </html>
