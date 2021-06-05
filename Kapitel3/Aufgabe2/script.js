@@ -20,7 +20,10 @@ var a3_2;
         let response = await fetch(url, { method: "get" });
         let responseText = await response.text();
         showResponse(responseText);
-        console.log(responseText);
+        if (path == "/json")
+            console.log(JSON.parse(responseText));
+        else
+            console.log(responseText);
     }
     function showResponse(response) {
         let responseDiv = document.getElementById("response");

@@ -19,7 +19,8 @@ namespace a3_2 {
         let response: Response = await fetch(url, { method: "get"});
         let responseText: string = await response.text();
         showResponse(responseText);
-        console.log(responseText);     
+        if (path == "/json") console.log(JSON.parse(responseText));
+        else console.log(responseText);     
     }
 
     function showResponse(response: string): void {
