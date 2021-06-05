@@ -13,6 +13,7 @@ namespace a3_2 {
         let formData: FormData = new FormData(document.forms[0]);
         let url: RequestInfo = "https://gissose2021soren.herokuapp.com";
         //let url: RequestInfo = "http://localhost:8100";
+        // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url += path + "?" + query.toString();  
         let response: Response = await fetch(url, { method: "get"});

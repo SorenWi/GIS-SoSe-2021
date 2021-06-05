@@ -14,6 +14,7 @@ var a3_2;
         let formData = new FormData(document.forms[0]);
         let url = "https://gissose2021soren.herokuapp.com";
         //let url: RequestInfo = "http://localhost:8100";
+        // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         url += path + "?" + query.toString();
         let response = await fetch(url, { method: "get" });
