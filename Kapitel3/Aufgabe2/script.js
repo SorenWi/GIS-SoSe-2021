@@ -12,7 +12,7 @@ var a3_2;
     });
     async function handleSubmit() {
         let formData = new FormData(document.forms[0]);
-        let url = "https://gissose2021soren.herokuapp.com/";
+        let url = "https://gissose2021soren.herokuapp.com";
         //let url: RequestInfo = "http://localhost:8100";
         let query = new URLSearchParams(formData);
         url += path + "?" + query.toString();
