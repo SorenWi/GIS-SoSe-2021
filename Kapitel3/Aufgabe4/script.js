@@ -34,7 +34,7 @@ var a3_4;
                 let tempDelete = document.createElement("button");
                 tempDelete.className = "deleteBtn";
                 tempDelete.addEventListener("click", async function () {
-                    await fetch("http://localhost:8100/delete?_id=" + responseJSON[i]._id, { method: "get" }); //todo change to heroku
+                    await fetch("https://gissose2021soren.herokuapp.com/delete?_id=" + responseJSON[i]._id, { method: "get" }); //todo change to heroku
                     temp.innerHTML = "deleted";
                 });
                 tempDelete.appendChild(document.createTextNode("Delete"));

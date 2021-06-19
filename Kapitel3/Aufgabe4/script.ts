@@ -32,11 +32,11 @@ namespace a3_4 {
                                  "<br> firstname: " + responseJSON[i].firstname +
                                  "<br> lastname: " + responseJSON[i].lastname +
                                  "<br> email: " + responseJSON[i].email + "<br>";
-                                 
+
                 let tempDelete: HTMLButtonElement = <HTMLButtonElement> document.createElement("button");
                 tempDelete.className = "deleteBtn";
                 tempDelete.addEventListener("click", async function(): Promise<void> {
-                    await fetch("http://localhost:8100/delete?_id=" + responseJSON[i]._id, {method: "get"}); //todo change to heroku
+                    await fetch("https://gissose2021soren.herokuapp.com/delete?_id=" + responseJSON[i]._id, {method: "get"}); //todo change to heroku
                     temp.innerHTML = "deleted";
                 } );
 
